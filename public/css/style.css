@@ -1,0 +1,10 @@
+.hidden{
+    display: none;
+}
+.vizibly{
+    display: inline-block;
+}
+
+#enter {
+    margin-right: 5px;
+}
