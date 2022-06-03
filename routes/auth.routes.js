@@ -24,7 +24,7 @@ const router = new Router()
 const {cookieJwtAuth} = require('../middleware/cookieJwtAuth')
 const {filePathDeleter} = require('../myFunctions/filePathDeleter')
 const {deleteFolder} = require('../myFunctions/deleteFolder');
-const { signup, activateAccount } = require("../controllers/authController");
+const { signup, activateAccount, forgotPassword, resetPassword } = require("../controllers/authController");
 // const fileService = require('../services/fileService')
 // const File = require('../models/File')
 let results = []
@@ -37,6 +37,8 @@ router.post('/registration',
     signup)
    
 router.post('/email-activate', activateAccount)
+router.post('/forgot-password', forgotPassword)
+router.post('/resset-pass', resetPassword)
 
 router.post('/login',
     async (req, res) => {

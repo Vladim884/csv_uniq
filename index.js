@@ -62,6 +62,14 @@ app.use("/api/auth/activate", function(req, res){
     res.render('activate.hbs')
 })
 
+app.use("/forgpass", function(req, res){
+    res.render('forgpass.hbs')
+})
+
+app.use("/resetpass", function(req, res){
+    res.render('resetpass.hbs')
+})
+
 app.use("/", function(req, res){
     res.render('index.hbs')
 })
