@@ -6,5 +6,20 @@
 }
 
 #enter {
-    margin-right: 5px;
+    /* margin-right: 5px; */
 }
+
+#regform input[type="password,"],
+#regform input[type="email,"] {
+    /* box-sizing: border-box; */
+    width: 100%;
+}
+/*  */
+/* .inputButton:hover {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+    outline: none;
+    border: 2px solid #198754;
+    border-radius: 5px;
+} */

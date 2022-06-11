@@ -31,6 +31,9 @@ exports.signup = async (req, res) => {
         if(candidate) {
             return res.status(400).json({message: `Пользователь с email: ${email} уже существует`})
         }
+        if (!req.body.flag) {
+            return res.status(400).json({message: `Для регистрации неоходимо согласие с правилами и договором`})
+        }
         const token = jwt.sign({email, password}, config.get('JWT_ACC_ACTIVATE'), {expiresIn: 60 * 60})
         const mailOptions = {
             from: config.get('EMAIL'), // sender address

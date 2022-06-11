@@ -1,19 +1,35 @@
-     <h1>Регистрация m2_1change</h1>
-    <div>
-        <form action="/api/auth/registration" method="post">
-            <input type="email" name="email">
-            <input type="password" name="password">
+<div class="container">
+  <div class="row">
+    <div class="col">
+      1 of 3
+    </div>
+    <div class="col">
+        <form action="/api/auth/registration" method="post" id="regform">
             <div>
-                {{!-- <div>
-                    <p>Я согласен с правилами пользования сайтом договором оферті</p>
-                </div>
-                <div>
-                    <input type="checkbox" name="flag">
-                </div> --}}
+                <input type="email" name="email">
             </div>
-            <button type="submit">Enter</button>
+            <div>
+                <input type="password" name="password" >
+            </div>
+            
+            <div>
+                <input type="checkbox" name="flag" id="check">
+                <label for="check"> Я согласен с <a href="#">правилами пользования</a> сайтом и <a href="#">договором оферты</a></label>
+            </div>
+            <div>
+                
+                <button 
+                type="submit" 
+                {{!-- disabled --}}
+                >Enter</button>
+            </div>
         </form>
-    </div>  
-    {{!-- <a href="/login">Войти</a> --}}
-
-    <script src="/js/reg.js"></script>
+    </div>
+    <div class="col">
+      3 of 3
+    </div>
+  </div>
+</div>
+ 
+<a href="/login">Войти</a>
+<script src="/js/reg.js"></script>

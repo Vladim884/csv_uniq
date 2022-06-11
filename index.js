@@ -61,6 +61,12 @@ app.use("/contacts", function(_, res){
 app.use("/api/auth/activate", function(req, res){
     res.render('activate.hbs')
 })
+app.use("/registration", function(req, res){
+    res.render('registration.hbs')
+})
+app.use("/enter", function(req, res){
+    res.render('enter.hbs')
+})
 
 app.use("/forgpass", function(req, res){
     res.render('forgpass.hbs')

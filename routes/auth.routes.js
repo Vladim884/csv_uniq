@@ -286,13 +286,13 @@ router.get('/auth', cookieJwtAuth,
     }
 )
 
-router.get('/enter', (req, res)=>{
-    return res.render('./login.hbs')
-})
+// router.get('/enter', (req, res)=>{
+//     return res.render('./login.hbs')
+// })
 
-router.get('/registr', (req, res)=>{
-    return res.render('./registration.hbs')
-})
+// router.get('/registr', (req, res)=>{
+//     return res.render('./registration.hbs')
+// })
 
 
 module.exports = router
