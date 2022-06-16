@@ -40,6 +40,7 @@ router.post('/email-activate', activateAccount)
 router.post('/forgot-password', forgotPassword)
 router.post('/resset-pass', resetPassword)
 
+
 router.post('/login',
     async (req, res) => {
         let randFilePath = req.cookies.randFilePath // 
@@ -94,7 +95,11 @@ router.post('/login',
         }
     }
 )
-
+router.get('/work', 
+cookieJwtAuth, 
+(req, res, next) => {
+    return res.render('./start.hbs')
+})
 
 router.post('/upload', 
 cookieJwtAuth, 
@@ -246,14 +251,15 @@ router.post('/upload2',
     // return res.send('<a href="/">hello</a>')
   })
 
-app.get("/logout", (req, res) => {
+  router.get("/logout", (req, res) => {
     alert('Вы вышли из системы') 
-    return res
+    res
       .clearCookie("exelpath")  
       .clearCookie("token")
+    return res.redirect('/')
 
-      .status(200)
-      .json({ message: "Successfully logged out 😏 🍀" })
+    //   .status(200)
+    //   .json({ message: "Successfully logged out 😏 🍀" })
        
   });
 

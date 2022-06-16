@@ -4,8 +4,8 @@ console.log('start my site!')
 const enter_button = document.getElementById('enter')
 const reg_button = document.getElementById('reg')
 
-enter_button.classList.add("d-none")
-reg_button.classList.add("d-none")
+// enter_button.classList.add("d-none")
+// reg_button.classList.add("d-none")
 
 const a = 'http://localhost:5000/login'
 const but_download = document.getElementById('down_load')

@@ -68,6 +68,10 @@ app.use("/enter", function(req, res){
     res.render('enter.hbs')
 })
 
+app.use("/start", function(req, res){
+    res.render('start.hbs')
+})
+
 app.use("/forgpass", function(req, res){
     res.render('forgpass.hbs')
 })

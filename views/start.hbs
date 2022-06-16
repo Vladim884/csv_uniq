@@ -1,3 +1,33 @@
+<header>
+    <div class="header-left">
+         <a 
+         href="/">
+        🅲🆂🆅 🆃🅾🅴🆇🅲🅴🅻
+        </a>
+    </div>
+    {{!-- <div class="header-center">
+        <ul class="menu-links">
+            <li><a class="current" href="/">Home</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+        </ul>
+    </div> --}}
+    <div class="header-right">
+        <ul class="menu-links" id="nav-menu">
+            <li  class="nav-item"><a href="/">Главная</a></li>
+            <li  class="nav-item"><a href="/contacts">Контакты</a></li>
+            <li  class="nav-item"><a href="/start" class="active">Start</a></li>
+            <li  class="nav-item" id="reg"><a href="/registration">Регистрация</a></li>
+            <li  class="nav-item" id="enter"><a href="/enter">Вход</a></li>
+            <li  class="nav-item">
+                <form action="/api/auth/logout" method="get" class="form-header" id="logout">
+                    <button class="btn btn-logout" type="submit">Выйти</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <div class="icon" id="icon"><i class="fa-solid fa-bars"></i></div>
+</header>
+
 <h5>Загрузите ваш файл товарных позиций prom-магазина с раширением .csv</h5>
         
 <div class="row align-items-start">

@@ -1,5 +1,29 @@
+<header>
+    <div class="header-left">
+         <a 
+         href="/">
+        🅲🆂🆅 🆃🅾🅴🆇🅲🅴🅻
+        </a>
+    </div>
+    {{!-- <div class="header-center">
+        <ul class="menu-links">
+            <li><a class="current" href="/">Home</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+        </ul>
+    </div> --}}
+    <div class="header-right">
+        <ul class="menu-links" id="nav-menu">
+            <li  class="nav-item"><a href="/">Главная</a></li>
+            <li  class="nav-item"><a href="/contacts">Контакты</a></li>
+            <li  class="nav-item" id="reg"><a href="/registration">Регистрация</a></li>
+            <li  class="nav-item" id="enter"><a href="/enter" class="active">Вход</a></li>
+            <li  class="nav-item"><a href="/api/auth/logout">logout</a></li>
+        </ul>
+    </div>
+    <div class="icon" id="icon"><i class="fa-solid fa-bars"></i></div>
+</header>
 
-    <h1>Enter your data</h1>
+<h1>Enter your data</h1>
     {{!-- <form action="/api/auth/login" method="post"> --}}
 <form action="/api/auth/login" method="post" class="row g-3">
   <div class="col-auto">

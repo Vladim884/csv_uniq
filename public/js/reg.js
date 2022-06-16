@@ -5,8 +5,8 @@ window.addEventListener('load', function(){
 const reg_button = document.getElementById('reg')
 const logout_button = document.getElementById('logout')
 
-reg_button.classList.add("hidden")
-logout_button.classList.add("hidden")
+// reg_button.classList.add("hidden")
+// logout_button.classList.add("hidden")
 
 //code
 const form1 = document.getElementById('form1');

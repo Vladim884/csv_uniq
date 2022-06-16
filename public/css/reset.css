@@ -12,6 +12,10 @@ ul, li {
   margin: o;
 }
 
+.hidden {
+  display: none;
+}
+
 .wrapper {
   display: flex;
   min-height: 100%;
@@ -112,11 +116,11 @@ ul, li {
   }
 
   .menu-links li a.active {
-    border: 1px solid #006666;
+    /* border: 1px solid #006666; */
     /* border-radius: 3px; */
-    padding: 4px 4px;
+    /* padding: 4px 4px; */
     background-color: #ffffff;
-    color: black;
+    /* color: black; */
   }
   .btn-logout {
     margin: 0;
@@ -171,7 +175,7 @@ ul, li {
     transition: 0.3s;
   }
 }
-
+/* =============================== */
 li textarea {
     width: 100%;
     margin-top: 10px;
@@ -196,6 +200,9 @@ button {
 div textarea {
     width: 100%;
     margin-top: 10px;
+    box-sizing: border-box;
+    background-color: 
+    #99CCCC;
 }
 
 .col .block {
@@ -209,12 +216,14 @@ div textarea {
 
 ::selection {
     color: blue;
-    background: yellow;
+    color: #006666;
+    color: white;
+    background: #006666;
 }
 
 .group {
     /* margin-left: 50px; */
-    width: 90%;
+    /* width: 90%; */
 }
 .itemname {
   padding-left: 12px;
@@ -275,10 +284,12 @@ div textarea {
   
   input:checked + .slider {
     background-color: #2196F3;
+    background-color: 	#336666;
   }
   
   input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px 	#336666;
   }
   
   input:checked + .slider:before {
@@ -315,6 +326,4 @@ footer p.copyright {
     width: 195px
 }
 
-.hidden {
-  display: none;
-}
+
