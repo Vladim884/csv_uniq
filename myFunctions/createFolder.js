@@ -7,3 +7,4 @@ exports.createDir = async  (xy) => {
         console.log(`Папка ${cookid} успешно создана`)
     })
 }
+
