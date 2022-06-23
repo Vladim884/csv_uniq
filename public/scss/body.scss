@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: 	#33CCCC;
+    background-color: 	#CCFFFF;
+  }
+  ul, li {
+    list-style: none;
+    padding: 0;
+    margin: o;
+  }
+  
+  button {
+    margin-bottom: 10px;
+  }
+
+  ::selection {
+    color: blue;
+    color: #006666;
+    color: white;
+    background: #006666;
+}
+
+  .red {
+    background-color: red;
+    color: red;
+}
+
+  .hidden {
+    display: none;
+  }
+
+  .vizibly{
+    display: inline-block;
+  }
+  
+  .wrapper {
+    display: flex;
+    min-height: 100%;
+    overflow: hidden;
+    flex-direction: column;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+#regform input[type="password,"],
+#regform input[type="email,"] {
+    /* box-sizing: border-box; */
+    width: 100%;
+}
+  
+  @media (max-width: 1200px) {
+    .container {
+      max-width: 970px;
+    }
+  }
+  @media (max-width: 992px) {
+    .container {
+      max-width: 750px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .container {
+      max-width: none;
+    }
+  }
+  
+  .par3tdiv {
+    width: 33.3%
+  }
+  
+  .par2tdiv {
+    width: 50%
+  }
+
+  /* ============================ */
+li textarea {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contain {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* если нужно выравнивание по вертикали */
+}
+
+.row .border {
+  border-bottom: 2px solid gray;
+  margin-bottom: 10px;
+}
+
+div textarea {
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    background-color: 
+    #99CCCC;
+}
+
+.col .block {
+    padding: 0 5px 0 5px;
+}
+
+.find {
+  margin-top: 10px;
+}
+
+.phrase {
+  padding-bottom: 60px;
+}
+
+.itemname {
+  padding-left: 12px;
+}
+
+#count {
+  display: inline-block;
+  width: 155px;
+  height: 28px;
+  padding-left: 3px;
+  border: 1px solid gray;
+}
+
+.lifind {
+  overflow: hidden;
+}

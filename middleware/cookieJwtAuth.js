@@ -7,6 +7,13 @@ exports.cookieJwtAuth = (req, res, next) => {
     console.log(`cookieJwtAuth-cookie-token ${req.cookies.token}`)
    
    if (!token) {
+    res
+      .clearCookie("exelpath")  
+      .clearCookie("randFilePath")  
+      .clearCookie("csvpath")  
+      .clearCookie("dirpath")  
+      .clearCookie("token")
+      .clearCookie("cookid")
     return res.sendStatus(403).json({"message": "Вы не вошли в аккаунт!"})
    }
    try {

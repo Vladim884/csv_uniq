@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -10,13 +10,13 @@ ul, li {
   list-style: none;
   padding: 0;
   margin: o;
-}
+} */
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
-.wrapper {
+/* .wrapper {
   display: flex;
   min-height: 100%;
   overflow: hidden;
@@ -52,15 +52,15 @@ ul, li {
 
 .par2tdiv {
   width: 50%
-}
+} */
 
 /* ul.menu-links li.icon {
   display: none;
 } */
 
 
-/* @media (min-width: 680px){ */
-  header{
+/* @media (min-width: 680px){================= */
+  /* header{
     /* Enable flex mode. */
     display: flex;
     position: relative;
@@ -145,7 +145,7 @@ ul, li {
     top: 5px;
     right: 5px;
     opacity: 70%;
-  }
+  } 
 /* } */
 @media (max-width: 680px){
   header{
@@ -176,14 +176,25 @@ ul, li {
   }
 }
 /* =============================== */
-li textarea {
-    width: 100%;
-    margin-top: 10px;
+/* footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-button {
+footer p.copyright {
+  margin-left: auto;
+    margin-right: auto;
+    width: 195px
+} */
+/* ============================ */
+/* li textarea {
+    width: 100%;
+    margin-top: 10px;
+} */
+
+/* button {
   margin-bottom: 10px;
-}
+} */
 
 .contain {
   padding: 20px 0;
@@ -209,7 +220,7 @@ div textarea {
     padding: 0 5px 0 5px;
 }
 
-.red {
+/* .red {
     background-color: red;
     color: red;
 }
@@ -219,12 +230,12 @@ div textarea {
     color: #006666;
     color: white;
     background: #006666;
-}
+} */
 
-.group {
+/* .group { */
     /* margin-left: 50px; */
     /* width: 90%; */
-}
+/* } */
 .itemname {
   padding-left: 12px;
 }
@@ -307,23 +318,14 @@ div textarea {
   border-radius: 50%;
 }
 
-.find {
+/* .find {
   margin-top: 10px;
 }
 
 .phrase {
   padding-bottom: 60px;
-}
+} */
 
-footer {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
 
-footer p.copyright {
-  margin-left: auto;
-    margin-right: auto;
-    width: 195px
-}
 
 

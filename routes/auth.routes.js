@@ -1,8 +1,10 @@
 const Router = require("express")
 const express = require("express")
+// const multer  = require("multer")
 const app = express()
 // const formidable = require('formidable')
-const json2csv = require("json2csv");
+const json2csv = require("json2csv")
+const extfs = require('extfs')
 const convertCsvToXlsx = require('@aternus/csv-to-xlsx')
 const rimraf = require('rimraf')
 const csv = require('csv-parser')
@@ -23,11 +25,21 @@ const router = new Router()
 // const authMiddleware = require('../middleware/auth.middleware')
 const {cookieJwtAuth} = require('../middleware/cookieJwtAuth')
 const {filePathDeleter} = require('../myFunctions/filePathDeleter')
-const {deleteFolder} = require('../myFunctions/deleteFolder');
+const {deleteFolder} = require('../myFunctions/deleteFolder')
+const {moveFile} = require('../myFunctions/moveFile')
 const { signup, activateAccount, forgotPassword, resetPassword } = require("../controllers/authController");
+const {createDir} = require('../myFunctions/createFolder');
+
 // const fileService = require('../services/fileService')
 // const File = require('../models/File')
 let results = []
+// let createDir = (xy) => {
+//     fs.mkdirSync(xy, err => {
+//         if (err)
+//         throw err // не удалось создать папку
+//         console.log(`Папка ${cookid} успешно создана`)
+//     })
+// }
 
 router.post('/registration',
     [
@@ -64,9 +76,13 @@ router.post('/login',
                 return res.status(400).json({message: "Invalid password"})
             }
             const token = jwt.sign({id: user.id, email: user.email}, config.get("secretKey"), {expiresIn: "1h"})
-            
+            // app.use(multer({dest : `${dirpath}`}).single("filedata"))
+            // res.cookie('originalFile', originalFile)
+            // res.cookie('dirpath', dirpath)
+            // dest = 'dest' + '/' + user.id
+
             res.cookie('cookid', user.id)
-            res.clearCookie("token")
+            // res.clearCookie("token")
             res.cookie('token', token, {
                 httpOnly: true
             })
@@ -80,7 +96,7 @@ router.post('/login',
                 //     avatar: user.avatar
                 // }
             // })
-            console.log(req.cookies.cookid)
+            console.log(`loginFunc cookid: ${req.cookies.cookid}`)
             
             
             console.log(`checkbox = ${req.body.flag}`)//checkbox value on login.hbs
@@ -90,42 +106,76 @@ router.post('/login',
                 return res.render('./message.hbs')
             }
             
+            
         } catch (e){
             console.log(e)
         }
     }
 )
-router.get('/work', 
-cookieJwtAuth, 
-(req, res, next) => {
-    return res.render('./start.hbs')
-})
+
+// dest = 'dest' + req.cookies.cookid
 
 router.post('/upload', 
 cookieJwtAuth, 
-(req, res, next) => {
+async (req, res, next) => {
+    // req.file.destination = 'dest' + '/' + req.cookies.cookid
     let filedata = req.file
-    console.log(filedata)
+    console.log(req.file)
+    let originalFile = filedata.originalname
     results = []
     let resfind = []
     let resname = []
     let resgroup = []
-    console.log("Cookies: ", req.cookies.cookid)
+    let cookid = req.cookies.cookid
+    let dirpath = `${config.get("filePath")}\\${cookid}\\` // path for dir 'files/thisId' in project-folder
+    let randFilePath = `${config.get("filePath")}\\${filedata.filename}` //path for  file .csv in 'dest/req.cookies.cookid/' in project-folder
+
     try {
-    let originalFile = filedata.originalname
+    // let originalFile = `${req.cookies.originalFile}`
     let fileExt = path.extname(originalFile)
     if(fileExt !== '.csv') return res.send('Некоректне розширення файлу! Поверниться на крок назад, та оберить файл с розширенням ".csv" на прикінці.')
+    
+    
+    
+    // let createUserFolder = () => {
+    //     let promise = new Promise((resolve, reject) => {
+    //         fs.stat(dirpath, function(err) {
+    //             if (!err) {
+    //                 console.log('Директория есть');
+    //             }
+    //             else if (err.code === 'ENOENT') {
+    //                 console.log('директории нет')
+    
+    await createDir(dirpath);
+            
+            //     }
+            // });
+        
+    // let moveFile = async () => {
+    //     fs.rename(`${randFilePath}`, `${dirpath}\\${filedata.filename}`, err => {
+    // // fs.rename(`${randFilePath}`, `${dirpath}\\mycsv.csv`, err => {
+    //     if(err) throw err; // не удалось переместить файл
+    //         console.log('Файл успешно перемещён');
+    //         randFilePath = `${dirpath}\\${filedata.filename}`
+    //         res.cookie('randFilePath', randFilePath)
+    //     })
+    // }
 
-    let dirpath = `${config.get("filePath")}\\${req.cookies.cookid}\\` // path for dir 'files/thisId' in project-folder
-    let randFilePath = `${config.get("filePath")}\\${filedata.filename}` //path for  file .csv in 'dest/req.cookies.cookid' in project-folder
-    res.cookie('dirpath', dirpath) // path for dir 'files/thisId' in project-folder
-    res.cookie('randFilePath', randFilePath) // path for dir 'files/thisId' in project-folder
-
-    fs.mkdirSync(`${dirpath}`, err => {
-        if(err) throw err // не удалось создать папку
-        console.log('Папка успешно создана');
-        });
-    fs.createReadStream(randFilePath)
+    await moveFile(randFilePath, `${dirpath}\\${filedata.filename}`)
+    // res.cookie(`${randFilePath}`, randFilePath)
+    randFilePath = `${dirpath}\\${filedata.filename}`  
+    // })
+     // path for dir 'files/thisId' in project-folder
+console.log(randFilePath)
+    // return promise
+    // }
+    
+    // createUserFolder()
+    // .then(
+        // ()=>{
+            
+        //     console.log('then')
+        fs.createReadStream(randFilePath)
         .pipe(csv())
         .on('data', (data) => {
             results.push(data)
@@ -141,7 +191,7 @@ cookieJwtAuth,
                 resname.push(data_n)
                 resgroup.push(data_g)
             }
-            let req_name = resname;
+            let req_name = resname
             let req_group = resgroup;
             let req_find = resfind;
             res.render("upload1.hbs", {
@@ -153,10 +203,71 @@ cookieJwtAuth,
                 resgroup: resgroup
             })
         })
+    // }
+    // )
+    
     } catch (error) {
         console.log(error)
     }
 })
+
+
+// router.post('/upload', 
+// cookieJwtAuth, 
+// (req, res, next) => {
+//     let filedata = req.file
+//     console.log(filedata)
+//     results = []
+//     let resfind = []
+//     let resname = []
+//     let resgroup = []
+//     console.log("Cookies: ", req.cookies.cookid)
+//     try {
+//     let originalFile = filedata.originalname
+//     let fileExt = path.extname(originalFile)
+//     if(fileExt !== '.csv') return res.send('Некоректне розширення файлу! Поверниться на крок назад, та оберить файл с розширенням ".csv" на прикінці.')
+
+//     let dirpath = `${config.get("filePath")}\\${req.cookies.cookid}\\` // path for dir 'files/thisId' in project-folder
+//     let randFilePath = `${config.get("filePath")}\\${filedata.filename}` //path for  file .csv in 'dest/req.cookies.cookid' in project-folder
+//     res.cookie('dirpath', dirpath) // path for dir 'files/thisId' in project-folder
+//     res.cookie('randFilePath', randFilePath) // path for dir 'files/thisId' in project-folder
+
+//     fs.mkdirSync(`${dirpath}`, err => {
+//         if(err) throw err // не удалось создать папку
+//         console.log('Папка успешно создана');
+//         });
+//     fs.createReadStream(randFilePath)
+//         .pipe(csv())
+//         .on('data', (data) => {
+//             results.push(data)
+//         })
+//         .on('end', () => {
+
+//             for (let i = 0; i < results.length; i++) {
+//                 let data_f = results[i]['Поисковые_запросы'];
+//                 let data_n = `${results[i]['Название_позиции']} ${results[i]['Поисковые_запросы']} ${results[i]['Название_группы']}`;
+//                 let data_g = results[i]['Название_группы'];
+
+//                 resfind.push(data_f)
+//                 resname.push(data_n)
+//                 resgroup.push(data_g)
+//             }
+//             let req_name = resname;
+//             let req_group = resgroup;
+//             let req_find = resfind;
+//             res.render("upload1.hbs", {
+//                 req_name: req_name,
+//                 req_group: req_group,
+//                 req_find: req_find,
+//                 resfind: resfind,
+//                 resname: resname,
+//                 resgroup: resgroup
+//             })
+//         })
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })
 
 router.post('/upload1', 
     cookieJwtAuth, 
@@ -200,7 +311,7 @@ router.post('/upload1',
                         throw err
                     }
                     console.log('File Saved!')
-                    console.log(req.cookies.cookid)
+                    // console.log(req.cookies.cookid)
                     //= ind++;
                     //= console.log(ind);
                     resolve("Temporary files created!")
@@ -237,25 +348,55 @@ router.post('/upload2',
         res.cookie('csvpath', csvpath)
         res.cookie('exelpath', exelpath)
         
-
-        res.download(`${dirpath}\\newxl.xlsx`, function () {
+        res.download(`${dirpath}\\newxl.xlsx`, async function () {
             filePathDeleter(csvpath)
             filePathDeleter(exelpath)
             filePathDeleter(randFilePath)
+            await res.render('./login.hbs')
+        })
+        
+            //====
             // deleteFolder(dirpath)
             // rimraf(`${dirpath}` + '*', function () { 
             //         console.log('Directory for temp-files is empty!'); 
             //     // !! if you remove the asterisk -> *, this folder will be deleted!
             //     })
-    })
+    
     // return res.send('<a href="/">hello</a>')
   })
 
+  router.get('/work', 
+    cookieJwtAuth, 
+    (req, res, next) => {
+        let dirpath = (req.cookies.dirpath)
+        deleteFolder(dirpath)
+        res
+            .clearCookie("exelpath")  
+            .clearCookie("randFilePath")  
+            .clearCookie("csvpath")  
+            .clearCookie("dirpath")  
+            // .clearCookie("token")
+            // .clearCookie("token")
+        return res.render('./start.hbs')
+    })
+
   router.get("/logout", (req, res) => {
-    alert('Вы вышли из системы') 
+    // alert('Вы вышли из системы') 
+    let dirpath = (req.cookies.dirpath)
+    if(!dirpath) return res.redirect('/')
+    
+    extfs.isEmpty(dirpath, function (empty) {
+        console.log(empty)
+    });
+    deleteFolder(dirpath)
+    
     res
       .clearCookie("exelpath")  
+      .clearCookie("randFilePath")  
+      .clearCookie("csvpath")  
+      .clearCookie("dirpath")  
       .clearCookie("token")
+      .clearCookie("cookid")
     return res.redirect('/')
 
     //   .status(200)

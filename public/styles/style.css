@@ -1,0 +1,373 @@
+@charset "UTF-8";
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  background-color: #33CCCC;
+  background-color: #CCFFFF;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: o;
+}
+
+button {
+  margin-bottom: 10px;
+}
+
+::selection {
+  color: blue;
+  color: #006666;
+  color: white;
+  background: #006666;
+}
+
+.red {
+  background-color: red;
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.vizibly {
+  display: inline-block;
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100%;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+#regform input[type="password,"],
+#regform input[type="email,"] {
+  /* box-sizing: border-box; */
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
+}
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
+}
+.par3tdiv {
+  width: 33.3%;
+}
+
+.par2tdiv {
+  width: 50%;
+}
+
+/* ============================ */
+li textarea {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contain {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* если нужно выравнивание по вертикали */
+}
+
+.row .border {
+  border-bottom: 2px solid gray;
+  margin-bottom: 10px;
+}
+
+div textarea {
+  width: 100%;
+  margin-top: 10px;
+  box-sizing: border-box;
+  background-color: #99CCCC;
+}
+
+.col .block {
+  padding: 0 5px 0 5px;
+}
+
+.find {
+  margin-top: 10px;
+}
+
+.phrase {
+  padding-bottom: 60px;
+}
+
+.itemname {
+  padding-left: 12px;
+}
+
+#count {
+  display: inline-block;
+  width: 155px;
+  height: 28px;
+  padding-left: 3px;
+  border: 1px solid gray;
+}
+
+.lifind {
+  overflow: hidden;
+}
+
+header {
+  /* Enable flex mode. */
+  display: flex;
+  position: relative;
+  background-color: #99CCCC;
+  padding: 0 5px;
+  /* Spread out the elements inside the header. */
+  justify-content: space-between;
+  /* Align items vertically in the center. */
+  align-items: center;
+}
+
+.header-left a {
+  color: #ffffff;
+  background-color: #006666;
+  text-decoration: none;
+  padding: 5px 0;
+  display: inline-block;
+}
+
+.menu-links {
+  display: flex;
+  margin: 0;
+}
+
+.menu-links li {
+  align-items: center;
+  /* margin-left: 5px;  */
+  /* border: 2px solid black; */
+  /* border: 2px solid #006666;
+  border-radius: 3px; */
+}
+
+.menu-links li a {
+  /* width: 100%; */
+  text-decoration: none;
+  color: #006666;
+  /* text-align: center; */
+  font-size: 14px;
+  padding: 5px 5px;
+  margin-right: 3px;
+  display: inline-block;
+  /* transition: 0.3s; */
+}
+
+.menu-links li a:hover, .btn-logout:hover {
+  border: 1px solid #006666;
+  border: 1px solid #99CCCC;
+  /* border-radius: 3px; */
+  padding: 4px 4px;
+  background-color: #ffffff;
+  color: black;
+  color: #99CCCC;
+}
+
+.menu-links li a.active {
+  /* border: 1px solid #006666; */
+  /* border-radius: 3px; */
+  /* padding: 4px 4px; */
+  background-color: #ffffff;
+  /* color: black; */
+}
+
+.btn-logout {
+  margin: 0;
+  padding: 5px 5px;
+  /* margin-right: 5px; */
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+  color: #006666;
+  border: none;
+  cursor: pointer;
+}
+
+header .icon {
+  display: none;
+  transition: 0.3s;
+  width: 16px;
+  height: 16px;
+  color: #006666;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  opacity: 70%;
+}
+
+/* } */
+@media (max-width: 680px) {
+  header {
+    /* Reverse the axis of the header, making it vertical. */
+    flex-direction: column;
+    /* Align items to the begining (the left) of the header. */
+    align-items: flex-start;
+  }
+  .menu-links {
+    display: none;
+    width: 140px;
+    /* margin-top: 5px; */
+  }
+  .menu-links li {
+    /* display: none; */
+    /* display: block; */
+    width: 100%;
+    /* margin-left: 0; */
+  }
+  .menu-links li a {
+    width: 100%;
+  }
+  header .icon {
+    display: block;
+    transition: 0.3s;
+  }
+}
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+footer p.copyright {
+  margin-left: auto;
+  margin-right: auto;
+  width: 195px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+/* Скрыть флажок HTML по умолчанию */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Ползунок */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+  background-color: #336666;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #336666;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Закругленные ползунки */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=style.css.map */

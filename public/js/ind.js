@@ -3,6 +3,8 @@ console.log('start my site!')
 
 const enter_button = document.getElementById('enter')
 const reg_button = document.getElementById('reg')
+const wrap_box = document.getElementById('wrap')
+const contmenu_box = document.getElementById('contmenu')
 
 // enter_button.classList.add("d-none")
 // reg_button.classList.add("d-none")
@@ -11,10 +13,11 @@ const a = 'http://localhost:5000/login'
 const but_download = document.getElementById('down_load')
 but_download.onclick = function(){ // функция при клике на неё 
     setTimeout(() => {
-        but_download.disabled = true
+        // but_download.disabled = true
         // window.open(a, '_self').focus()
     }, 0)
-    
+    wrap_box.classList.add('hidden');
+    contmenu_box.classList.remove('hidden')
 }
 const but_data_save = document.getElementById('data_save')
 

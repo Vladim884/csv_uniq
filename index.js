@@ -16,8 +16,9 @@ const app = express()
 const PORT = config.get('serverPort')
 const coocieParser = require('cookie-parser')
 const corsMiddleware = require('./middleware/cors.middleware')
+
+// let dirpath = '/'
 // app.use(multer({dest : 'files/' + `${fileEndDir}`}).single("filedata"))
-app.use(multer({dest : 'dest'}).single("filedata"))
 app.engine("hbs", expressHbs.engine(
     {
         layoutsDir: "views/layouts", 
@@ -45,8 +46,11 @@ app.use(coocieParser());
 // app.use(fileUpload({}))
 app.use(corsMiddleware)
 app.use(express.json())
+let req
 
-app.use(express.static(__dirname + '/public'))
+app.use(multer({dest : 'dest'}).single("filedata"))
+
+app.use(express.static(__dirname + '/public'));
 app.use("/api/auth", authRouter)
 app.use("/api/files", fileRouter)
 
