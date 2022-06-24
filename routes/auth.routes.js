@@ -62,7 +62,9 @@ router.post('/login',
         // filePathDeleter(randFilePath) //randNameFile in dest-folder
         filePathDeleter(csvpath)
         filePathDeleter(exelpath)
-        deleteFolder(dirpath) // delete idNameFolder
+        console.log(dirpath)
+        // deleteFolder(dirpath) // delete idNameFolder
+        // rimraf(dirpath) // 
         res.clearCookie('newpath')
         res.clearCookie('cookid')
         try {
@@ -76,13 +78,10 @@ router.post('/login',
                 return res.status(400).json({message: "Invalid password"})
             }
             const token = jwt.sign({id: user.id, email: user.email}, config.get("secretKey"), {expiresIn: "1h"})
-            // app.use(multer({dest : `${dirpath}`}).single("filedata"))
             // res.cookie('originalFile', originalFile)
-            // res.cookie('dirpath', dirpath)
-            // dest = 'dest' + '/' + user.id
-
+            dirpath = `${config.get('filePath')}\\${user.id}`
+            deleteFolder(dirpath)
             res.cookie('cookid', user.id)
-            // res.clearCookie("token")
             res.cookie('token', token, {
                 httpOnly: true
             })
@@ -113,20 +112,14 @@ router.post('/login',
     }
 )
 
-// dest = 'dest' + req.cookies.cookid
 
 router.post('/upload', 
 cookieJwtAuth, 
 async (req, res, next) => {
-    // req.file.destination = 'dest' + '/' + req.cookies.cookid
     let filedata = req.file
     console.log(req.file)
     let originalFile = filedata.originalname
 
-    // results = []
-    // let resfind = []
-    // let resname = []
-    // let resgroup = []
     let cookid = req.cookies.cookid
     let dirpath = `${config.get("filePath")}\\${cookid}` // path for dir 'files/thisId' in project-folder
     let randFilePath = `${config.get("filePath")}\\${filedata.filename}` //path for  file .csv in 'dest/req.cookies.cookid/' in project-folder
@@ -137,83 +130,15 @@ async (req, res, next) => {
     let fileExt = path.extname(originalFile)
     if(fileExt !== '.csv') return res.send('Некоректне розширення файлу! Поверниться на крок назад, та оберить файл с розширенням ".csv" на прикінці.')
     
-    
-    
-    // let createUserFolder = () => {
-    //     let promise = new Promise((resolve, reject) => {
-    //         fs.stat(dirpath, function(err) {
-    //             if (!err) {
-    //                 console.log('Директория есть');
-    //             }
-    //             else if (err.code === 'ENOENT') {
-    //                 console.log('директории нет')
-    
     await createDir(dirpath);
-            
-            //     }
-            // });
-        
-    // let moveFile = async () => {
-    //     fs.rename(`${randFilePath}`, `${dirpath}\\${filedata.filename}`, err => {
-    // // fs.rename(`${randFilePath}`, `${dirpath}\\mycsv.csv`, err => {
-    //     if(err) throw err; // не удалось переместить файл
-    //         console.log('Файл успешно перемещён');
-    //         randFilePath = `${dirpath}\\${filedata.filename}`
-    //         res.cookie('randFilePath', randFilePath)
-    //     })
-    // }
-
+    
     await moveFile(randFilePath, `${dirpath}\\${filedata.filename}`)
-    // res.cookie(`${randFilePath}`, randFilePath)
     randFilePath = `${dirpath}\\${filedata.filename}`  
-    // })
      // path for dir 'files/thisId' in project-folder
     console.log(randFilePath)
     res.cookie('randFilePath', randFilePath)
 
     res.render("upload01.hbs")
-    // return promise
-    // }
-    
-    // createUserFolder()
-    // .then(
-        // ()=>{
-            
-        //     console.log('then')
-
-        // ================================
-    //    fs.createReadStream(randFilePath)
-    //     .pipe(csv())
-    //     .on('data', (data) => {
-    //         results.push(data)
-    //     })
-    //     .on('end', () => {
-
-    //         for (let i = 0; i < results.length; i++) {
-    //             let data_f = results[i]['Поисковые_запросы'];
-    //             let data_n = `${results[i]['Название_позиции']} ${results[i]['Поисковые_запросы']} ${results[i]['Название_группы']}`;
-    //             let data_g = results[i]['Название_группы'];
-
-    //             resfind.push(data_f)
-    //             resname.push(data_n)
-    //             resgroup.push(data_g)
-    //         }
-    //         let req_name = resname
-    //         let req_group = resgroup;
-    //         let req_find = resfind;
-    //         res.render("upload1.hbs", {
-    //             req_name: req_name,
-    //             req_group: req_group,
-    //             req_find: req_find,
-    //             resfind: resfind,
-    //             resname: resname,
-    //             resgroup: resgroup
-    //         })
-    //     })
-    // ==============================
-
-    // readDataFile()
-    // )
     
     } catch (error) {
         console.log(error)
@@ -231,7 +156,7 @@ router.post('/upload01',
     console.log(`randFilePath: ${randFilePath}`)
 
     try {
-        fs.createReadStream(randFilePath)
+    fs.createReadStream(randFilePath)
     .pipe(csv())
     .on('data', (data) => {
         results.push(data)

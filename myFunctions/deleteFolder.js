@@ -5,7 +5,7 @@ exports.deleteFolder = (p) => {
     let files = [];
     if( fs.existsSync(p) ) {
         files = fs.readdirSync(p);
-        files.forEach(function(file,index){
+        files.forEach(function(file, index){
             let curPath = p + "/" + file;
             if(fs.statSync(curPath).isDirectory()) {
                 deleteFolder(curPath);
