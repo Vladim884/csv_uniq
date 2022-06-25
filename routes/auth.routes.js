@@ -117,11 +117,14 @@ router.post('/upload',
 cookieJwtAuth, 
 async (req, res, next) => {
     let filedata = req.file
+    let cookid = req.cookies.cookid
+    let dirpath = `${config.get("filePath")}\\${cookid}` // path for dir 'files/thisId' in project-folder
+    
+    deleteFolder(dirpath)
     console.log(req.file)
     let originalFile = filedata.originalname
 
-    let cookid = req.cookies.cookid
-    let dirpath = `${config.get("filePath")}\\${cookid}` // path for dir 'files/thisId' in project-folder
+    
     let randFilePath = `${config.get("filePath")}\\${filedata.filename}` //path for  file .csv in 'dest/req.cookies.cookid/' in project-folder
 
 
@@ -137,6 +140,7 @@ async (req, res, next) => {
      // path for dir 'files/thisId' in project-folder
     console.log(randFilePath)
     res.cookie('randFilePath', randFilePath)
+    res.cookie('dirpath', dirpath)
 
     res.render("upload01.hbs")
     
@@ -153,7 +157,9 @@ router.post('/upload01',
     let resname = []
     let resgroup = []
     let randFilePath = req.cookies.randFilePath
+    let dirpath = req.cookies.dirpath
     console.log(`randFilePath: ${randFilePath}`)
+    console.log(`dirpath: ${dirpath}`)
 
     try {
     fs.createReadStream(randFilePath)
@@ -269,9 +275,10 @@ router.post('/upload2',
         res.cookie('exelpath', exelpath)
         
         res.download(`${dirpath}\\newxl.xlsx`, async function () {
-            filePathDeleter(csvpath)
-            filePathDeleter(exelpath)
-            filePathDeleter(randFilePath)
+            // filePathDeleter(csvpath)
+            // filePathDeleter(exelpath)
+            // filePathDeleter(randFilePath)
+            deleteFolder(dirpath)
             await res.render('./login.hbs')
         })
         
@@ -288,16 +295,21 @@ router.post('/upload2',
   router.get('/work', 
     cookieJwtAuth, 
     (req, res, next) => {
-        let dirpath = (req.cookies.dirpath)
-        deleteFolder(dirpath)
-        res
-            .clearCookie("exelpath")  
-            .clearCookie("randFilePath")  
-            .clearCookie("csvpath")  
-            .clearCookie("dirpath")  
-            // .clearCookie("token")
-            // .clearCookie("token")
-        return res.render('./start.hbs')
+        try {
+            let dirpath = (req.cookies.dirpath)
+            deleteFolder(dirpath)
+            res
+                .clearCookie("exelpath")  
+                .clearCookie("randFilePath")  
+                .clearCookie("csvpath")  
+                .clearCookie("dirpath")  
+                // .clearCookie("token")
+                // .clearCookie("token")
+            return res.render('./start.hbs')
+        } catch (e) {
+            console.log(e)
+        }
+        
     })
 
   router.get("/logout", (req, res) => {
@@ -305,9 +317,9 @@ router.post('/upload2',
     let dirpath = (req.cookies.dirpath)
     if(!dirpath) return res.redirect('/')
     
-    extfs.isEmpty(dirpath, function (empty) {
-        console.log(empty)
-    });
+    // extfs.isEmpty(dirpath, function (empty) {
+    //     console.log(empty)
+    // });
     deleteFolder(dirpath)
     
     res

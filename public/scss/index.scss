@@ -1,6 +1,8 @@
 @import './common/reset';
-@import 'body';
 @import './components/header';
 @import './components/footer';
 @import './components/slider_switch';
+// record body must be lower than header!
+@import 'body';
+
 
