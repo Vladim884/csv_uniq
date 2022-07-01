@@ -46,66 +46,64 @@ input {
   border-radius: 0;
 }
 
+input[type=text],
+input[type=email],
+input[type=password] {
+  font-family: inherit; /* 1 */
+  font-size: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  margin: 0; /* 2 */
+}
+
 header {
   /* Enable flex mode. */
   display: flex;
   position: relative;
   background-color: #99CCCC;
-  padding: 0 5px;
+  padding: 5px;
   /* Spread out the elements inside the header. */
   justify-content: space-between;
+  border-bottom: 1px solid #006666;
   /* Align items vertically in the center. */
   align-items: center;
 }
-
-.header-left a {
+header .header-left a {
   color: #ffffff;
   background-color: #006666;
   text-decoration: none;
   padding: 5px 0;
   display: inline-block;
 }
-
-.menu-links {
+header .menu-links {
   display: flex;
   margin: 0;
 }
-
-.menu-links li {
+header .menu-links li {
   align-items: center;
-  /* margin-left: 5px;  */
-  /* border: 2px solid black; */
-  /* border: 2px solid #006666;
-  border-radius: 3px; */
 }
-
-.menu-links li a {
-  /* width: 100%; */
+header .menu-links li a {
   text-decoration: none;
   color: #006666;
   /* text-align: center; */
   font-size: 14px;
   padding: 5px 5px;
   display: inline-block;
+  border-radius: 3px;
   /* transition: 0.3s; */
 }
-
-.menu-links li a:hover, .btn-logout:hover {
-  border: 1px solid #006666;
-  border: 1px solid #99CCCC;
-  /* border-radius: 3px; */
+header .menu-links li a.active {
+  border-radius: 5px;
   padding: 4px 4px;
-  background-color: #ffffff;
-  color: black;
-  color: #99CCCC;
-}
-
-.menu-links li a.active {
   border: 1px solid #006666;
-  border-radius: 3px;
-  /* padding: 4px 4px; */
-  background-color: #ffffff;
+  background-color: white;
   /* color: black; */
+}
+header .menu-links li a:hover {
+  color: white;
+}
+header .menu-links li a.active:hover {
+  border: 1px solid white;
+  color: #006666;
 }
 
 .btn-logout {
@@ -142,18 +140,18 @@ header .icon {
     /* Align items to the begining (the left) of the header. */
     align-items: flex-start;
   }
-  .menu-links {
+  header .menu-links {
     display: none;
     width: 140px;
     /* margin-top: 5px; */
   }
-  .menu-links li {
+  header .menu-links li {
     /* display: none; */
     /* display: block; */
     width: 100%;
     /* margin-left: 0; */
   }
-  .menu-links li a {
+  header .menu-links li a {
     width: 100%;
   }
   header .icon {
@@ -164,6 +162,13 @@ header .icon {
 footer {
   padding-top: 20px;
   padding-bottom: 20px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  max-width: 100%;
+  color: white;
+  background-color: black;
 }
 footer p.copyright {
   margin-left: auto;
@@ -235,6 +240,40 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.form-block {
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 20vh;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #006666;
+  background-color: #99CCCC;
+}
+.form-block input[type=text],
+.form-block input[type=email],
+.form-block input[type=password] {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid #006666;
+}
+.form-block input[type=email]:focus,
+.form-block input[type=password]:focus {
+  border: 2px solid #006666;
+}
+.form-block input[type=checkbox] {
+  -webkit-appearance: auto;
+}
+.form-block input[type=button] {
+  margin-bottom: 0;
+  border-radius: 1px;
+  border: 2px solid #006666;
+}
+.form-block .checking {
+  margin-bottom: 15px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -244,18 +283,7 @@ body {
   background-color: #CCFFFF;
 }
 
-ul, li {
-  padding: 0;
-  margin: o;
-}
-
-button {
-  margin-bottom: 10px;
-}
-
 ::selection {
-  color: blue;
-  color: #006666;
   color: white;
   background: #006666;
 }
@@ -269,7 +297,7 @@ button {
   display: none;
 }
 
-.vizibly {
+header .menu-links.vizibly {
   display: block;
 }
 
@@ -284,6 +312,37 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.two-block,
+.three-block {
+  margin: 0 0 30px 0;
+  background-color: light-green;
+}
+
+.two-block__row,
+.three-block__row {
+  display: flex;
+  margin: 0 -15px;
+  background-color: green;
+}
+
+.three-block__column {
+  flex: 0 1 33.33%;
+  padding: 0 15px;
+  background-color: yellow;
+}
+
+.two-block__column {
+  flex: 0 1 50%;
+  padding: 0 15px;
+  background-color: yellow;
+}
+
+.two-block__item,
+.three-block__item {
+  padding: 0 15px;
+  background-color: gray;
 }
 
 #regform input[type="password,"],
@@ -366,10 +425,6 @@ div textarea {
 
 .lifind {
   overflow: hidden;
-}
-
-.active {
-  background-color: white;
 }
 
 /*# sourceMappingURL=styles.css.map */

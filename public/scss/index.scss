@@ -1,7 +1,9 @@
 @import './common/reset';
+@import './common/variables';
 @import './components/header';
 @import './components/footer';
 @import './components/slider_switch';
+@import './components/form-block';
 // record body must be lower than header!
 @import 'body';
 

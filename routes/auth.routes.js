@@ -33,13 +33,7 @@ const {createDir} = require('../myFunctions/createFolder');
 // const fileService = require('../services/fileService')
 // const File = require('../models/File')
 let results = []
-// let createDir = (xy) => {
-//     fs.mkdirSync(xy, err => {
-//         if (err)
-//         throw err // не удалось создать папку
-//         console.log(`Папка ${cookid} успешно создана`)
-//     })
-// }
+
 
 router.post('/registration',
     [
@@ -315,7 +309,7 @@ router.post('/upload2',
   router.get("/logout", (req, res) => {
     // alert('Вы вышли из системы') 
     let dirpath = (req.cookies.dirpath)
-    if(!dirpath) return res.redirect('/')
+    // if(!dirpath) return res.redirect('/')
     
     // extfs.isEmpty(dirpath, function (empty) {
     //     console.log(empty)

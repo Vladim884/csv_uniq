@@ -1,6 +1,15 @@
 footer {
   padding-top: 20px;
   padding-bottom: 20px;
+  
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    max-width:100%;
+    color: white;
+    background-color: black;
+ 
   p.copyright {
     margin-left: auto;
     margin-right: auto;

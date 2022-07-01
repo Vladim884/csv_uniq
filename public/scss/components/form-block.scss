@@ -1,0 +1,35 @@
+.form-block {
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 20vh;
+    padding: 15px;
+    // padding-bottom: 5px;
+    border-radius: 10px;
+    border: 1px solid $darky;
+    background-color: $medy;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      margin-bottom: 10px;
+      height: 25px;
+      border-radius: 5px;
+      border: 1px solid $darky;
+    }
+    input[type="email"]:focus,
+    input[type="password"]:focus{
+        border: 2px solid $darky;
+    }
+    input[type="checkbox"] {
+      -webkit-appearance: auto;
+    }
+    input[type="button"] {
+        margin-bottom: 0;
+        border-radius: 1px;
+      border: 2px solid $darky;
+    }
+    .checking {
+        margin-bottom: 15px;
+    }
+  }

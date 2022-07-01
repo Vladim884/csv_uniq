@@ -3,64 +3,76 @@ header{
     display: flex;
     position: relative;
     background-color:#99CCCC;
-    padding: 0 5px;
+    padding: 5px;
     /* Spread out the elements inside the header. */
     justify-content: space-between;
+    border-bottom: 1px solid $darky;
   
     /* Align items vertically in the center. */
     align-items: center;
-  }
-  .header-left a {
-    color: #ffffff;
-    background-color: #006666;
-    text-decoration: none;
-    padding: 5px 0;
-    display: inline-block;
-  }
-  
-  .menu-links {
-    display: flex; 
-    margin: 0;
-  }
-  .menu-links li{
-    align-items: center;
-    /* margin-left: 5px;  */
-    /* border: 2px solid black; */
-    /* border: 2px solid #006666;
-    border-radius: 3px; */
-  
-  }
-  
-  
-  .menu-links li a{
-    /* width: 100%; */
-    text-decoration: none; 
-    color: #006666;
-    /* text-align: center; */
-    font-size: 14px;
-    padding: 5px 5px;
-    // margin-right: 3px;
-    display: inline-block;
-    /* transition: 0.3s; */
-  }
-  .menu-links li a:hover, .btn-logout:hover{
-    border: 1px solid #006666;
-    border: 1px solid #99CCCC;
-    /* border-radius: 3px; */
-    padding: 4px 4px;
-    background-color: #ffffff;
-    color: black;
-    color: #99CCCC;
+    .header-left a {
+      color: #ffffff;
+      background-color: #006666;
+      text-decoration: none;
+      padding: 5px 0;
+      display: inline-block;
+    }
+
+    .menu-links {
+      display: flex; 
+      margin: 0;
+      & li{
+        align-items: center;
+        
+        a {
+          // /* width: 100%; */
+          text-decoration: none; 
+          color: $darky;
+          /* text-align: center; */
+          font-size: 14px;
+          padding: 5px 5px;
+          display: inline-block;
+          border-radius: 3px;
+          /* transition: 0.3s; */
+          &.active {
+            border-radius: 5px; 
+            padding: 4px 4px;
+            border: 1px solid $darky;
+            background-color: white;
+            // background-color: red;
+            /* color: black; */
+          }
+          
+          &:hover {
+            color: white;
+            // border: 1px solid $darky;
+            // border-radius: 3px;
+            // padding: 4px 4px;
+            // background-color: #ffffff;
+          }
+          &.active:hover {
+            border: 1px solid white;
+            color: $darky;
+          }
+        }
+        
+        
+        
+      }
+    }
   }
 
-  .menu-links li a.active {
-    border: 1px solid #006666;
-    border-radius: 3px; 
-    /* padding: 4px 4px; */
-    background-color: #ffffff;
-    // background-color: red;
-    /* color: black; */
-  }
+  // .menu-links li article
+  
+  
+  
+  
+  
+  
+  
+  
+
+  // .menu-links li a
   .btn-logout {
     margin: 0;
     padding: 5px 5px;
@@ -93,24 +105,28 @@ header{
 
       /* Align items to the begining (the left) of the header. */
       align-items: flex-start;
+      .menu-links {
+        display: none;
+        width: 140px;
+        /* margin-top: 5px; */
+        li {
+          /* display: none; */
+          /* display: block; */
+          width: 100%;
+          /* margin-left: 0; */
+          a {
+            width: 100%;
+            // color: red;
+          }
+        }
+      }
+      .icon {
+        display: block;
+        transition: 0.3s;
+      }
   }
-  .menu-links {
-    display: none;
-    width: 140px;
-    /* margin-top: 5px; */
-  }
-  .menu-links li {
-    /* display: none; */
-    /* display: block; */
-    width: 100%;
-    /* margin-left: 0; */
-  }
-  .menu-links li a {
-    width: 100%;
-    // color: red;
-  }
-  header .icon {
-    display: block;
-    transition: 0.3s;
-  }
+  
+  // .menu-links 
+  // .menu-links li 
+  // header 
 }

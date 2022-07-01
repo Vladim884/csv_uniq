@@ -6,19 +6,7 @@ body {
     background-color: 	#33CCCC;
     background-color: 	#CCFFFF;
   }
-  ul, li {
-    // list-style: none;
-    padding: 0;
-    margin: o;
-  }
-  
-  button {
-    margin-bottom: 10px;
-  }
-
   ::selection {
-    color: blue;
-    color: #006666;
     color: white;
     background: #006666;
 }
@@ -32,7 +20,7 @@ body {
     display: none;
   }
 
-  .vizibly{
+  header .menu-links.vizibly{
     display: block;
   }
   
@@ -47,6 +35,34 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
+  }
+
+
+  .two-block,
+  .three-block {
+    margin: 0 0 30px 0;
+    background-color: light-green;
+  }
+  .two-block__row, 
+  .three-block__row {
+    display: flex;
+    margin: 0 -15px;
+    background-color: green;
+  }
+  .three-block__column {
+    flex: 0 1 33.33%;
+    padding: 0 15px;
+    background-color: yellow;
+  }
+  .two-block__column {
+    flex: 0 1 50%;
+    padding: 0 15px;
+    background-color: yellow;
+  }
+  .two-block__item, 
+  .three-block__item {
+    padding: 0 15px;
+    background-color: gray;
   }
 
 #regform input[type="password,"],
@@ -134,6 +150,6 @@ div textarea {
   overflow: hidden;
 }
 
-.active {
-  background-color: white;
-}
+// .active {
+//   background-color: white;
+// }

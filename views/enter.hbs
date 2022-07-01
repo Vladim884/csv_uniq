@@ -30,5 +30,26 @@
             
         {{!-- <button type="submit">Enter</button> --}}
 </form>
+
+<div class="container">
+    <div class="form-block">
+        <form action="/api/auth/login" method="post" id="regform">
+                <input type="text" name="email" placeholder="Введите ваш email">
+                <input type="password" name="password" placeholder="Введите пароль">
+            
+            <div class="checking">
+                <input type="checkbox" name="flag" id="check">
+                <label for="check"> Я согласен с <a href="#">правилами пользования</a> сайтом и <a href="#">договором оферты</a></label>
+            </div>
+            <div>
+                
+                <button 
+                type="submit" 
+                {{!-- disabled --}}
+                >Enter</button>
+            </div>
+        </form>
+    </div>
+</div>
         
  <script src="/js/enter.js"></script>
