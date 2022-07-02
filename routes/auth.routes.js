@@ -92,13 +92,13 @@ router.post('/login',
             console.log(`loginFunc cookid: ${req.cookies.cookid}`)
             
             
-            console.log(`checkbox = ${req.body.flag}`)//checkbox value on login.hbs
-            if (req.body.flag) {
-                return res.render('./start.hbs')
-            } else {
-                return res.render('./message.hbs')
-            }
-            
+            // console.log(`checkbox = ${req.body.flag}`)//checkbox value on login.hbs
+            // if (req.body.flag) {
+            //     return res.render('./start.hbs')
+            // } else {
+            //     return res.render('./message.hbs')
+            // }
+            return res.render('./start.hbs')   
             
         } catch (e){
             console.log(e)

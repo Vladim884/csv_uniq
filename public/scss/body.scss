@@ -32,7 +32,10 @@ body {
   }
   
   .container {
+    position: relative;
     max-width: 1200px;
+    // height: 100vh;
+    // height: calc(100vh - 26px);
     margin: 0 auto;
     padding: 0 15px;
   }

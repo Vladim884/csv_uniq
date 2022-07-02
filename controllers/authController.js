@@ -25,6 +25,9 @@ exports.signup = async (req, res) => {
         if (!errors.isEmpty()) {
             return res.status(400).json({message: "Uncorrect request", errors})
         }
+        if (!req.body.flag) {
+            return res.render('./message.hbs')
+        }
         console.log(req.body)
         const {email, password} = req.body
         const candidate = await User.findOne({email})

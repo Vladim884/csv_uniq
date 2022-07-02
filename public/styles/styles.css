@@ -166,7 +166,7 @@ footer {
   left: 0px;
   bottom: 0px;
   height: 30px;
-  max-width: 100%;
+  width: 100%;
   color: white;
   background-color: black;
 }
@@ -309,6 +309,7 @@ header .menu-links.vizibly {
 }
 
 .container {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
