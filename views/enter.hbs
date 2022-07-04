@@ -1,41 +1,9 @@
-<h1>Enter your data</h1>
-    {{!-- <form action="/api/auth/login" method="post"> --}}
-<form action="/api/auth/login" method="post" class="row g-3">
-  <div class="col-auto">
-    <label for="staticEmail2" class="visually-hidden">Email</label>
-    <input type="text" name="email" class="form-control-plaintext" id="staticEmail2" value="" placeholder="Введите email" required>
-  </div>
-  <div class="col-auto">
-    <label for="inputPassword2" class="visually-hidden">Password</label>
-    <input type="password" name="password" class="form-control" id="inputPassword2" value="1111" placeholder="Password" required>
-  </div>
-  <div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-3">Вход</button>
-  </div>
-{{!-- </form> --}}
-        {{!-- <input type="text" name="email">
-        <input type="password" name="password" value="1111"> --}}
-        {{!-- <input type="password" name="password"> --}}
-        <div>
-            <input type="checkbox" name="flag" id="checkMyyes" checked>
-            <label for="checkMyyes" checked>Я соглас(ен/на) с <a href="#">правилами пользования сайтом</a> и с <a href="#">договором оферты</a></label>
-        </div> 
-        <a href="/forgpass">Забыли пароль?</a>   
-            {{!-- <div class="form-check">
-            <input name="flag" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-            <label class="form-check-label" for="flexCheckChecked">
-                Checked checkbox
-            </label>
-            </div> --}}
-            
-        {{!-- <button type="submit">Enter</button> --}}
-</form>
-
 <div class="container">
     <div class="form-block">
+        <h3>Вхід у систему</h3>
         <form action="/api/auth/login" method="post" id="regform">
-                <input type="text" name="email" placeholder="Введите ваш email">
-                <input type="password" name="password" placeholder="Введите пароль">
+                <input type="text" name="email" placeholder="Введіть ваш email">
+                <input type="password" name="password" placeholder="Введіть пароль">
             
             {{!-- <div class="checking">
                 <input type="checkbox" name="flag" id="check">
@@ -45,9 +13,15 @@
                 <button 
                 type="submit" 
                 {{!-- disabled --}}
-                >Enter</button>
+                >Вхід</button>
             </div>
         </form>
+        <div class="quest">
+            <a href="/forgpass">Забули пароль?</a> 
+        </div>
+        <div class="quest">
+            <a href="/registration">Немає реєстрації?</a> 
+        </div>
     </div>
 </div>
         

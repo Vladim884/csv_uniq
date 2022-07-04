@@ -1,0 +1,24 @@
+button {
+    -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+    border: 0;
+    border-radius: 5px;
+    border: 1px solid $darky;
+    background: $lighty;
+    color: $darky;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid #fff;
+        background-color: $medy;
+        color: #fff;
+    }
+    &:focus {
+        border: 2px solid $darky;
+        padding: 7px 15px;
+        background-color: #fff;
+        color: $darky;
+    }
+  }

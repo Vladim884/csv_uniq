@@ -12,10 +12,13 @@ header{
     align-items: center;
     .header-left a {
       color: #ffffff;
-      background-color: #006666;
+      background-color: $darky;
       text-decoration: none;
       padding: 5px 0;
       display: inline-block;
+      &:hover {
+        background-color: $medy;
+      }
     }
 
     .menu-links {

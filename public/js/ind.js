@@ -1,8 +1,8 @@
 
 console.log('start my site!')
 
-const enter_button = document.getElementById('enter')
-const reg_button = document.getElementById('reg')
+// const enter_button = document.getElementById('enter')
+// const reg_button = document.getElementById('reg')
 const wrap_box = document.getElementById('wrap')
 const contmenu_box = document.getElementById('contmenu')
 

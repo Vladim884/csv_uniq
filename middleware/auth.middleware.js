@@ -7,9 +7,10 @@ module.exports = (req, res, next) => {
     }
 
     try {
-        const dat = req.headers
-        console.log(dat)
+        const data = req.headers
+        console.log(data)
         const token = req.headers.authorization.split(' ')[1]
+        console.log(`token in auth.middleware: ${token}`)
         if (!token) {
             return res.status(401).json({message: 'token error'})
         }

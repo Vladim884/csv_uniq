@@ -323,7 +323,7 @@ router.post('/upload2',
       .clearCookie("dirpath")  
       .clearCookie("token")
       .clearCookie("cookid")
-    return res.redirect('/')
+    return res.redirect('/enter')
 
     //   .status(200)
     //   .json({ message: "Successfully logged out 😏 🍀" })

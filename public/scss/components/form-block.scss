@@ -3,33 +3,60 @@
     margin: 0 auto;
     margin-top: 20vh;
     padding: 15px;
-    // padding-bottom: 5px;
+    color: $darky;
     border-radius: 10px;
     border: 1px solid $darky;
     background-color: $medy;
-
+    h3 {
+        font-weight: 500;
+        margin: 0 auto; 
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    form {
+        margin-bottom: 10px;
+    }
     input[type="text"],
     input[type="email"],
     input[type="password"] {
       width: 100%;
       margin-bottom: 10px;
-      height: 25px;
+      height: 30px;
       border-radius: 5px;
       border: 1px solid $darky;
+      background-color: $lighty;
+      &:hover{
+            border: 1px solid $lighty;
+            // height: 29px;
+        }
+      &:focus{
+            border: 2px solid $darky;
+        }
     }
-    input[type="email"]:focus,
-    input[type="password"]:focus{
-        border: 2px solid $darky;
-    }
-    input[type="checkbox"] {
-      -webkit-appearance: auto;
-    }
-    input[type="button"] {
-        margin-bottom: 0;
-        border-radius: 1px;
-      border: 2px solid $darky;
-    }
+    // input[type="email"]:focus,
+    // input[type="password"]
+    // input[type="checkbox"] {
+    //   -webkit-appearance: auto;
+    // }
+    // 
     .checking {
         margin-bottom: 15px;
+        color: $darky;
+        
     }
+    .quest {
+        margin-bottom: 10px;
+    }
+    a {
+        text-decoration: none;
+        color: $darky;
+        font-style: italic;
+        &:hover {
+            color: white;
+        }
+    }
+    input {
+        -webkit-appearance: checkbox; 
+    }
+    
   }
