@@ -163,22 +163,45 @@ header .icon {
   }
 }
 footer {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  height: 30px;
-  width: 100%;
-  color: white;
-  background-color: black;
+  background-color: #006666;
+  margin-top: 20px;
 }
-footer p.copyright {
-  margin-left: auto;
-  margin-right: auto;
-  width: 195px;
+footer .footer-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
 }
 
+.item {
+  width: calc(33.33% - 100px);
+  margin: 20px 50px;
+  text-align: center;
+  color: white;
+  box-sizing: border-box;
+}
+.item .footer-menu a {
+  text-decoration: none;
+  text-align: start;
+  font-style: italic;
+  color: #CCFFFF;
+}
+.item .footer-menu a:hover {
+  color: orangered;
+}
+.item .footer-logo {
+  display: inline-block;
+  color: #ffffff;
+  background-color: #006666;
+  padding: 5px 0;
+}
+
+@media screen and (max-width: 370px) {
+  .item {
+    width: calc(100% - 100px);
+    margin: 20px 50px;
+    box-sizing: border-box;
+  }
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -272,6 +295,7 @@ button:focus {
   width: 250px;
   margin: 0 auto;
   margin-top: 20vh;
+  margin-bottom: 150px;
   padding: 15px;
   color: #006666;
   border-radius: 10px;
@@ -438,7 +462,6 @@ li textarea {
 }
 
 .contain {
-  padding: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center; /* если нужно выравнивание по вертикали */
