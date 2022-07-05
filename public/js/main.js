@@ -5,7 +5,18 @@
     iconBtn.onclick = () => {
         navMenu.classList.toggle("vizibly")
     }
+    const contTitle = document.getElementById('contname')
+    const navTitle = document.getElementById('navname')
+    
+    const navFooterMenu = document.getElementById('navmenu')
+    const navFooterContact = document.getElementById('navcontact')
 
+    contTitle.onclick = () => {
+        navFooterContact.classList.toggle("vizibly")
+    }
+    navTitle.onclick = () => {
+        navFooterMenu.classList.toggle("vizibly")
+    }
 
 
     
