@@ -1,0 +1,50 @@
+/* styles for upload-file-button*/
+    .file-upload {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        width: 150px;
+        height: 40px;
+        background: $lighty;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: 1px solid $darky;
+        color: $darky;
+        text-align: center;
+
+        input[type="file"]{
+            // display: none;
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+        &:hover {
+            background: $darky;
+            color: $lighty;
+        }
+        /* width label = width .file-upload */
+        label {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        /* text style on button*/
+        span {
+            line-height: 40px;
+            font-weight:bold;
+        }
+        
+    }
+    #file-name {
+        width: 200px;
+        font-size: 12px;
+        display: inline-block;
+    }
+    

@@ -41,8 +41,11 @@ footer {
       // vertical-align: middle;
       display: inline-block;
       color: #ffffff;
-      background-color: $darky;
+      background-color: $medy;
       padding: 5px 0;
+      &:hover {
+        background-color: $darky;
+      }
     }
   }
   
@@ -76,6 +79,15 @@ footer {
 }
 
 @media screen and (max-width: 515px){
+  footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .footer-copy {
+      p {
+        margin-bottom: 25px;
+      }
+    }
+  }
       .item{
       width: calc(100% - 100px);
       margin: 10px auto;
@@ -83,7 +95,9 @@ footer {
       box-sizing: border-box;
       .footer-title {
         cursor: pointer;
+        margin-bottom: 10px;
       }
+      
       .footer-menu {
         display: none;
       }

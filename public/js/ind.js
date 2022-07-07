@@ -11,18 +11,15 @@ const contmenu_box = document.getElementById('contmenu')
 
 const a = 'http://localhost:5000/login'
 const but_download = document.getElementById('down_load')
-but_download.onclick = function(){ // функция при клике на неё 
-    setTimeout(() => {
-        // but_download.disabled = true
-        // window.open(a, '_self').focus()
-    }, 0)
-    wrap_box.classList.add('hidden');
-    contmenu_box.classList.remove('hidden')
-}
 const but_data_save = document.getElementById('data_save')
 
 but_data_save.onclick = () => {
     but_download.disabled = false
+}
+
+but_download.onclick = function(){ // функция при клике на неё 
+        contmenu_box.classList.remove('hidden')
+        wrap_box.classList.add('hidden')
 }
 
 

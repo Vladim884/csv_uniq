@@ -27,6 +27,12 @@ for (let i = 0; i < li.length; i++) {
         console.log(li[i].children[0].href)
         li[i].children[0].classList.add('active');
     }
+    //deleting enter-header-link if the user is logged in
+    if(document.cookie.split('=')[0] === 'cookid'){
+        console.log(li[i].children[0].href)
+        li[4].classList.add('hidden');
+    }
+
 }
 
 const enter_button = document.getElementById('enter')
@@ -44,3 +50,12 @@ linkLogout.onclick = function (e) {
 }
 // enter_button.classList.add("hidden")
 // reg_button.classList.add("hidden")
+
+
+
+//   console.log(`document.cookie: ${document.cookie}`)
+
+var xy = document.cookie;
+console.log(document.cookie.split(';'))
+console.log(typeof xy)
+ 
