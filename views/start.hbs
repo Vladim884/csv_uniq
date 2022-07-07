@@ -5,14 +5,21 @@
         
       <form action="/api/auth/upload" method="post" enctype="multipart/form-data">
       <div class="file-upload" id="file-upload">
-      <label>
-        <input type="file" name="filedata" onchange="getFileName ();" id="uploaded-file">
-        <span>Оберіть файл</span>
-      </label>
-      
+        <label>
+          <input type="file" name="filedata" onchange="getFileName ();" id="uploaded-file">
+          <span>Оберіть файл csv</span>
+        </label>
       </div>
-      <div id="file-name">файл не загружен</div>
-      <input type="submit" class="filesubm">
+      <div id="file-name">
+        <span>Файл не обрано</span>
+      </div>
+      <div class="but-box">
+        {{!-- <button>Відправити</button> --}}
+      {{!-- </div>  --}}
+      <input type="submit" class="filesubm" id="filesubm" value="Відправити" disabled>
+      </div>
+     
+
       
       
           {{!-- <div class="input__wrapper">
@@ -28,14 +35,15 @@
 
 </section>
 <script>
-  function getFileName () {
-
+function getFileName () {
+let subm = document.getElementById('filesubm')
 let file = document.getElementById ('uploaded-file').value
 let spanName = document.getElementsByTagName('span')
 file = file.replace(/\\/g, "/").split ('/').pop ()
-spanName[0].textContent = 'файл обрано'
-
-document.getElementById ('file-name').innerHTML = 'Имя файла: ' + file;
+spanName[0].textContent = "І'мя файла:"
+subm.disabled = false
+subm.style.cursor = "pointer";
+document.getElementById ('file-name').innerHTML = file;
 }
 </script>
 {{!-- spanName[0].classList.add('hidden') --}}

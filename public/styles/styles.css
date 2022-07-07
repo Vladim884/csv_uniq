@@ -387,7 +387,7 @@ button:focus {
   overflow: hidden;
   width: 150px;
   height: 40px;
-  background: #CCFFFF;
+  background: #99CCCC;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border: 1px solid #006666;
@@ -397,16 +397,16 @@ button:focus {
   /* text style on button*/
 }
 .file-upload input[type=file] {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
+  display: none;
 }
 .file-upload:hover {
   background: #006666;
   color: #CCFFFF;
+}
+.file-upload:active {
+  background-color: #CCFFFF;
+  border: 2px solid #006666;
+  color: #006666;
 }
 .file-upload label {
   display: block;
@@ -423,9 +423,42 @@ button:focus {
 }
 
 #file-name {
-  width: 200px;
-  font-size: 12px;
   display: inline-block;
+  overflow: hidden;
+  width: 195px;
+  height: 40px;
+  background: #CCFFFF;
+  border: 1px solid #006666;
+  color: #006666;
+  text-align: center;
+  margin-left: -5px;
+  line-height: 40px;
+}
+
+.but-box {
+  display: inline-block;
+  vertical-align: top;
+}
+.but-box input[type=submit].filesubm {
+  width: 150px;
+  height: 40px;
+  color: #006666;
+  background-color: #99CCCC;
+  border: 1px solid #006666;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: -5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.but-box input[type=submit].filesubm:hover {
+  background-color: #006666;
+  color: #CCFFFF;
+}
+.but-box input[type=submit].filesubm:active {
+  background-color: #CCFFFF;
+  border: 2px solid #006666;
+  color: #006666;
 }
 
 html {
@@ -472,7 +505,7 @@ header .menu-links.vizibly {
 }
 
 .wrapp {
-  min-height: calc(100vh - 196px - 36px);
+  min-height: calc(100vh - 176px - 36px);
 }
 
 .container {
@@ -495,6 +528,7 @@ section p {
   font-weight: 500;
   color: #006666;
   margin: 0 auto 20px;
+  text-align: center;
 }
 section form {
   width: 500px;

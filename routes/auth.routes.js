@@ -127,7 +127,7 @@ async (req, res, next) => {
     let fileExt = path.extname(originalFile)
     if(fileExt !== '.csv') return res.send('Некоректне розширення файлу! Поверниться на крок назад, та оберить файл с розширенням ".csv" на прикінці.')
     
-    await createDir(dirpath);
+    await createDir(dirpath)
     
     await moveFile(randFilePath, `${dirpath}\\${filedata.filename}`)
     randFilePath = `${dirpath}\\${filedata.filename}`  

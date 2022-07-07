@@ -5,25 +5,30 @@
         overflow: hidden;
         width: 150px;
         height: 40px;
-        background: $lighty;
+        background: $medy;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         border: 1px solid $darky;
         color: $darky;
         text-align: center;
-
+        
         input[type="file"]{
-            // display: none;
-            width: 0.1px;
-            height: 0.1px;
-            opacity: 0;
-            overflow: hidden;
-            position: absolute;
-            z-index: -1;
+            display: none;
+            // width: 0.1px;
+            // height: 0.1px;
+            // opacity: 0;
+            // overflow: hidden;
+            // position: absolute;
+            // z-index: -1;
         }
         &:hover {
             background: $darky;
             color: $lighty;
+        }
+        &:active {
+            background-color: $lighty;
+            border: 2px solid $darky;
+            color: $darky;
         }
         /* width label = width .file-upload */
         label {
@@ -43,8 +48,52 @@
         
     }
     #file-name {
-        width: 200px;
-        font-size: 12px;
         display: inline-block;
+        // position: relative;
+        overflow: hidden;
+        width: 195px;
+        height: 40px;
+        background: $lighty;
+        // border-top-left-radius: 10px;
+        // border-bottom-left-radius: 10px;
+        border: 1px solid $darky;
+        color: $darky;
+        text-align: center;
+        margin-left: -5px;
+        line-height: 40px;
+        // &:hover {
+        //     background: $darky;
+        //     color: $lighty;
+        // }
     }
+    .but-box {
+        display: inline-block;
+        vertical-align: top;
+        input[type=submit].filesubm {
+            // vertical-align: top;
+            // display: inline-block;
+            // overflow: hidden;
+            width: 150px;
+            height: 40px;
+            color: $darky;
+            background-color: $medy;
+            border: 1px solid $darky;
+            font-weight: 600;
+            font-size: 14px;
+            margin-left: -5px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            &:hover {
+                background-color: $darky;
+                color: $lighty;
+            }
+            &:active {
+                background-color: $lighty;
+                border: 2px solid $darky;
+                color: $darky;
+            }
+        }
+        
+    }
+    
     
