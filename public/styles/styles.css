@@ -91,22 +91,14 @@ header .menu-links li a {
   font-size: 14px;
   padding: 5px 5px;
   display: inline-block;
-  border-radius: 3px;
+  border-radius: 2px;
   /* transition: 0.3s; */
 }
 header .menu-links li a.active {
-  border-radius: 5px;
-  padding: 4px 4px;
-  border: 1px solid #006666;
-  background-color: white;
-  /* color: black; */
+  color: white;
 }
 header .menu-links li a:hover {
   color: white;
-}
-header .menu-links li a.active:hover {
-  border: 1px solid white;
-  color: #006666;
 }
 
 .btn-logout {
@@ -164,7 +156,7 @@ header .icon {
 }
 footer {
   background-color: #006666;
-  margin-top: 20px;
+  margin-top: 10vh;
 }
 footer .item .vizibly#navcontact,
 footer .item .vizibly#navmenu {
@@ -172,6 +164,7 @@ footer .item .vizibly#navmenu {
 }
 footer .footer-title {
   margin-bottom: 10px;
+  font-weight: 700;
 }
 footer .footer-wrap {
   display: flex;
@@ -179,7 +172,7 @@ footer .footer-wrap {
   margin: 0;
 }
 footer .footer-copy p {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 footer .footer-copy .footer-logo {
   display: inline-block;
@@ -204,7 +197,6 @@ footer .footer-copy .footer-logo:hover {
 .item .footer-menu a {
   text-decoration: none;
   text-align: start;
-  font-style: italic;
   color: #CCFFFF;
 }
 .item .footer-menu a:hover {
@@ -301,18 +293,20 @@ button {
   -moz-appearance: none;
   appearance: none;
   border: 0;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid #006666;
   background: #CCFFFF;
   color: #006666;
   padding: 8px 16px;
   font-size: 16px;
   cursor: pointer;
+  box-sizing: border-box;
 }
 button:hover {
-  border: 1px solid #fff;
-  background-color: #99CCCC;
-  color: #fff;
+  border: 2px solid #CCFFFF;
+  background-color: #006666;
+  color: #CCFFFF;
+  padding: 7px 15px;
 }
 button:focus {
   border: 2px solid #006666;
@@ -324,11 +318,11 @@ button:focus {
 .form-block {
   width: 250px;
   margin: 0 auto;
-  margin-top: 20vh;
-  margin-bottom: 150px;
+  margin-top: 5vh;
+  margin-bottom: 50px;
   padding: 15px;
   color: #006666;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #006666;
   background-color: #99CCCC;
 }
@@ -345,16 +339,17 @@ button:focus {
 .form-block input[type=email],
 .form-block input[type=password] {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   height: 30px;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid #006666;
   background-color: #CCFFFF;
 }
 .form-block input[type=text]:hover,
 .form-block input[type=email]:hover,
 .form-block input[type=password]:hover {
-  border: 1px solid #CCFFFF;
+  border: 2px solid #006666;
+  height: 30px;
 }
 .form-block input[type=text]:focus,
 .form-block input[type=email]:focus,

@@ -1,5 +1,8 @@
 // window.addEventListener('load', function(){
-
+    //form logout from account
+    const linkEnter = document.getElementById('enter')
+    //form logout from account
+    const linkLogout = document.getElementById('logout')
     const iconBtn = document.getElementById('icon')
     const navMenu = document.getElementById('nav-menu')
     iconBtn.onclick = () => {
@@ -30,7 +33,9 @@ for (let i = 0; i < li.length; i++) {
     //deleting enter-header-link if the user is logged in
     if(document.cookie.split('=')[0] === 'cookid'){
         console.log(li[i].children[0].href)
-        li[4].classList.add('hidden');
+        // li[4].classList.add('hidden')
+        linkEnter.classList.add('hidden')
+        linkLogout.classList.remove('hidden')
     }
 
 }
@@ -39,8 +44,7 @@ const enter_button = document.getElementById('enter')
 // const logout_button = document.getElementById('logout')
 const reg_button = document.getElementById('reg')
 
-//form logout from account
-const linkLogout = document.getElementById('logout')
+
 
 //functiom try logging out, confirm: yes or no?
 linkLogout.onclick = function (e) {

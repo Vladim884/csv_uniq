@@ -35,32 +35,16 @@ header{
           font-size: 14px;
           padding: 5px 5px;
           display: inline-block;
-          border-radius: 3px;
+          border-radius: 2px;
           /* transition: 0.3s; */
           &.active {
-            border-radius: 5px; 
-            padding: 4px 4px;
-            border: 1px solid $darky;
-            background-color: white;
-            // background-color: red;
-            /* color: black; */
+            color: white;
           }
           
           &:hover {
             color: white;
-            // border: 1px solid $darky;
-            // border-radius: 3px;
-            // padding: 4px 4px;
-            // background-color: #ffffff;
-          }
-          &.active:hover {
-            border: 1px solid white;
-            color: $darky;
           }
         }
-        
-        
-        
       }
     }
   }

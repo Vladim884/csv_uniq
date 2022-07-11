@@ -3,17 +3,19 @@ button {
      -moz-appearance: none;
           appearance: none;
     border: 0;
-    border-radius: 5px;
+    border-radius: 3px;
     border: 1px solid $darky;
     background: $lighty;
     color: $darky;
     padding: 8px 16px;
     font-size: 16px;
     cursor: pointer;
+    box-sizing: border-box;
     &:hover {
-        border: 1px solid #fff;
-        background-color: $medy;
-        color: #fff;
+        border: 2px solid $lighty;
+        background-color: $darky;
+        color: $lighty;
+        padding: 7px 15px;
     }
     &:focus {
         border: 2px solid $darky;

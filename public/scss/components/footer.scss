@@ -1,31 +1,14 @@
-// footer {
-//   padding-top: 20px;
-//   padding-bottom: 20px;
-  
-//     position: fixed;
-//     left:0px;
-//     bottom:0px;
-//     height:30px;
-//     width:100%;
-//     color: white;
-//     background-color: black;
- 
-//   p.copyright {
-//     margin-left: auto;
-//     margin-right: auto;
-//     width: 195px
-//   }
-// }
 
 footer {
   background-color: $darky;
-  margin-top: 20px;
+  margin-top: 10vh;
   .item .vizibly#navcontact,
   .item .vizibly#navmenu {
     display: block;
   }
   .footer-title {
     margin-bottom: 10px;
+    font-weight: 700;
   }
   .footer-wrap {
     display: flex;
@@ -35,7 +18,7 @@ footer {
   }
   .footer-copy {
     p {
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
     .footer-logo {
       // vertical-align: middle;
@@ -66,7 +49,7 @@ footer {
     a {
       text-decoration: none;
       text-align: start ;
-      font-style: italic;
+      // font-style: italic;
       color: $lighty;
       &:hover {
         color: orangered
